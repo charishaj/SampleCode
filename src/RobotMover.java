@@ -46,6 +46,7 @@ public class RobotMover {
 			robot.setxPosition(newXPosition);
 			robot.setyPosition(newYPosition);
 		}
+
 		
 		
 		return robot;

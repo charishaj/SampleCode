@@ -83,13 +83,11 @@ public class InputValidator {
 		boolean isValidPosition = true;
 		
 		if(xPos > 4 || xPos < 0) {
-			System.out.println("Cannot make this move as it moves robot off the table");
 			isValidPosition = false;
 			
 		}
 		
 		if(yPos > 4 || yPos < 0 ) {
-			System.out.println("Cannot make this move as it moves robot off the table");
 			isValidPosition = false;
 		}
 		
