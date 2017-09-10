@@ -12,21 +12,95 @@ public class RobotMover {
 		
 	}
 	
+	//Move robot a step forward
 	public Robot moveForward(Robot robot, String command) {
 		
+		//check direction the robot is facing
+		
+		String directionFacing = robot.getDirectionFacing();
+		int newXPosition = robot.getxPosition();
+		int newYPosition = robot.getyPosition(); 
+		
+		switch (directionFacing) {
+        case "NORTH": 
+        				newYPosition = robot.getyPosition() + 1;
+                 	break;
+        case "SOUTH":
+        				newYPosition = robot.getyPosition() - 1;
+        				break;
+        case "EAST": 
+        				newXPosition = robot.getxPosition() + 1;
+        				break;
+        case "WEST":
+        				newXPosition = robot.getxPosition() - 1;
+        			    break;
+        default: System.out.println("Error. Direction robot is facing is invalid");
+        			 System.out.println("");
+        break;
+		}
+		
+		//check if new x and y positions are valid
+		InputValidator inputValidator = new InputValidator();
+		
+		if(inputValidator.validateXYPositions(newXPosition, newYPosition)) {
+			robot.setxPosition(newXPosition);
+			robot.setyPosition(newYPosition);
+		}
 		
 		
 		return robot;
 		
 	}
 	
-	public Robot rotateLeft(Robot robot, String command) {
+	//rotate robot left
+	public Robot rotateLeft(Robot robot) {
+		
+		String directionFacing = robot.getDirectionFacing();
+		
+		switch (directionFacing) {
+        case "NORTH": 
+        				robot.setDirectionFacing("WEST");
+                 	break;
+        case "SOUTH":
+        				robot.setDirectionFacing("EAST");
+        				break;
+        case "EAST": 
+        				robot.setDirectionFacing("NORTH");
+        				break;
+        case "WEST":
+        				robot.setDirectionFacing("SOUTH");
+        			    break;
+        default: System.out.println("Error. Direction robot is facing is invalid");
+        			 System.out.println("");
+        break;
+		}
 		
 		
 		return robot;
 	}
 	
-	public Robot rotateRight(Robot robot, String command) {
+	//rotate robot right
+	public Robot rotateRight(Robot robot) {
+		
+String directionFacing = robot.getDirectionFacing();
+		
+		switch (directionFacing) {
+        case "NORTH": 
+        				robot.setDirectionFacing("EAST");
+                 	break;
+        case "SOUTH":
+        				robot.setDirectionFacing("WEST");
+        				break;
+        case "EAST": 
+        				robot.setDirectionFacing("SOUTH");
+        				break;
+        case "WEST":
+        				robot.setDirectionFacing("NORTH");
+        			    break;
+        default: System.out.println("Error. Direction robot is facing is invalid");
+        			 System.out.println("");
+        break;
+		}
 		
 		return robot;
 	}

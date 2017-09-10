@@ -29,7 +29,7 @@ public class InputValidator {
 	
 		//check x and y inputs are numeric and are positive numbers 
 	   if(!isPositiveNumber(input1) || !isPositiveNumber(input2)) {
-		   System.out.println("x and y positions must be a positive number");
+		   System.out.println("x and y positions must be between 0 and 4 for the robot to be on the table");
 		   inputValid = false;
 		   return inputValid;
 	   }
@@ -37,7 +37,7 @@ public class InputValidator {
 		   
 		   //check x and y are less than 4
 		   if(Integer.parseInt(input1) > 4 || Integer.parseInt(input2)>4) {
-			   System.out.println("x and y positions must be between 0 and 4");
+			   System.out.println("x and y positions must be between 0 and 4 for the robot to be on the table");
 			   inputValid = false;
 			   return inputValid;
 		   }
@@ -67,7 +67,7 @@ public class InputValidator {
 	  {  
 	    double d = Double.parseDouble(str); 
 	    //check string is positive
-	    if(d > 0) {
+	    if(!(d < 0)) {
 	    	 isPositiveNumber = true;
 	    }
 	  }  
@@ -76,6 +76,24 @@ public class InputValidator {
 		  isPositiveNumber = false;  
 	  }  
 	  return isPositiveNumber;  
+	}
+	
+	//check if x and y positions are on the board
+	public boolean validateXYPositions(int xPos, int yPos) {
+		boolean isValidPosition = true;
+		
+		if(xPos > 4 || xPos < 0) {
+			System.out.println("Cannot make this move as it moves robot off the table");
+			isValidPosition = false;
+			
+		}
+		
+		if(yPos > 4 || yPos < 0 ) {
+			System.out.println("Cannot make this move as it moves robot off the table");
+			isValidPosition = false;
+		}
+		
+		return isValidPosition;
 	}
 
 }

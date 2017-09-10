@@ -41,6 +41,7 @@ public class ToyBotMain {
 				gameStarted = true; 
 			}
 			else {
+				System.out.println("Invalid Command.");
 				gameStarted = false;
 			}
 			
@@ -71,15 +72,16 @@ public class ToyBotMain {
 			
 	
 	        switch (commandType) {
-	            case "PLACE":  robotMover.placeRobot(robot, command);
+	            case "PLACE":  robot = robotMover.placeRobot(robot, command);
 	                     break;
-	            case "MOVE": robotMover.moveForward(robot, command);
+	            case "MOVE": robot = robotMover.moveForward(robot, command);
 	                     break;
-	            case "LEFT":  robotMover.rotateLeft(robot, command);
+	            case "LEFT":  robot = robotMover.rotateLeft(robot);
 	                     break;
-	            case "RIGHT": robotMover.rotateRight(robot, command);
+	            case "RIGHT": robot = robotMover.rotateRight(robot);
 	                     break;
-	            case "REPORT": 
+	            case "REPORT": userInterface.report(robot);
+	            			 break;
 	            default: System.out.println("Invalid command. Try again.");
 						 System.out.println("");
 	                     break;

@@ -32,22 +32,24 @@ public class UserInterface {
 		
 	}
 	
-	public Robot moveRobot(Robot robot, String command) {
+	public void report(Robot robot) {
 		
-		return robot;
+		System.out.println(robot.getyPosition() + "," + robot.getxPosition() + "," + robot.getDirectionFacing());
 	}
 	
 	public String receiveUserCommand() {
 		
 		System.out.println("");
-		System.out.println( "Type any of the following commands to continue game");
-		System.out.println("PLACE X position,Y position,F\n" + 
+		System.out.println( "Type any of the following commands to continue game:");
+		System.out.println("");
+		System.out.println("PLACE X position,Y position, Direction Facing \n" + 
 				"MOVE\n" + 
 				"LEFT\n" + 
 				"RIGHT\n" + 
 				"REPORT");
 		
 		//ask user for command
+		System.out.println("");
 		System.out.println("Enter command: ");
 		Scanner scanner = new Scanner(System.in);
 		String command = scanner.nextLine().trim().toUpperCase();
