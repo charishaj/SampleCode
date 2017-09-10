@@ -1,3 +1,6 @@
+	/*
+	 * Represent a robot object
+	 */
 
 public class Robot {
 	
@@ -5,10 +8,19 @@ public class Robot {
 	private int yPosition;
 	private String directionFacing;
 	
+
+	
 	public Robot() {
 		
 	}
 	
+	public Robot(int xPosition, int yPosition, String directionFacing) {
+		
+		this.xPosition = xPosition;
+		this.yPosition = yPosition;
+		this.directionFacing = directionFacing;
+		
+	}
 	
 	public int getxPosition() {
 		return xPosition;

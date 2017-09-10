@@ -1,16 +1,28 @@
 
+	/*
+	 * Moves the robot object
+	 */
+
 public class RobotMover {
+	
+
 	
 	public RobotMover() {
 		
 	}
 	
-	public boolean moveForward(Robot robot) {
+	public Robot moveForward(Robot robot) {
 		
-		boolean moveCompleted = false;
 		
-		return moveCompleted;
 		
+		return robot;
+		
+	}
+	
+	public Robot changeDirectionFacing(Robot robot) {
+		
+		
+		return robot;
 	}
 
 }
